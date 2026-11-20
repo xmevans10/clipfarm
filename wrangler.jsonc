@@ -1,0 +1,94 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "clipfarm",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-11-20",
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 0.25,
+    "traces": {
+      "enabled": true,
+      "head_sampling_rate": 0.1
+    }
+  },
+  "assets": {
+    "directory": "public",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/api/*"
+    ]
+  },
+  "ai": {
+    "binding": "AI"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "clipfarm-db",
+      "migrations_dir": "migrations",
+      "database_id": "b0966f0a-8f97-4c28-b174-64c451f9c0c1"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "MEDIA",
+      "bucket_name": "clipfarm-media"
+    }
+  ],
+  "queues": {
+    "producers": [
+      {
+        "binding": "JOBS",
+        "queue": "clipfarm-jobs"
+      }
+    ],
+    "consumers": [
+      {
+        "queue": "clipfarm-jobs",
+        "max_batch_size": 1,
+        "max_batch_timeout": 1,
+        "max_retries": 2,
+        "max_concurrency": 3
+      }
+    ]
+  },
+  "containers": [
+    {
+      "class_name": "Renderer",
+      "image": "./Dockerfile",
+      "instance_type": "standard-2",
+      "max_instances": 6
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "RENDERER",
+        "class_name": "Renderer"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "renderer-v1",
+      "new_sqlite_classes": [
+        "Renderer"
+      ]
+    }
+  ],
+  "triggers": {
+    "crons": [
+      "*/15 * * * *"
+    ]
+  },
+  "ratelimits": [
+    {
+      "name": "AUTH_LIMIT",
+      "namespace_id": "11202601",
+      "simple": {
+        "limit": 8,
+        "period": 60
+      }
+    }
+  ]
+}
