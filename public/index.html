@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Turn one long video into the short clips worth posting. Choose how many and get captioned vertical MP4s.">
-  <meta property="og:title" content="ClipFarm — Find the good parts">
-  <meta property="og:description" content="Paste a video link, choose your clip count, and download captioned vertical shorts.">
+  <meta name="description" content="Turn podcasts, interviews, and other long videos into captioned vertical clips. Choose up to 10 clips and download them as 9:16 MP4s.">
+  <meta property="og:title" content="ClipFarm — Turn long videos into captioned shorts">
+  <meta property="og:description" content="Paste a direct video link and choose up to 10 clips. Download the best moments as captioned vertical MP4s.">
   <meta property="og:image" content="/assets/clipfarm-hero.webp">
   <meta name="theme-color" content="#111411">
-  <title>ClipFarm — Find the good parts</title>
+  <title>ClipFarm — Turn long videos into captioned shorts</title>
   <link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/style.css">
   <script type="module" src="/app.js"></script>
@@ -25,9 +25,9 @@
   <main>
     <div class="shell hero">
       <div class="hero-copy">
-        <h1>Find the<br>good <em>parts.</em></h1>
-        <p>Turn one long video into captioned shorts. Paste a video link, choose how many clips you want, and download the best cuts.</p>
-        <a class="hero-link" href="#clipper">Make clips <span aria-hidden="true">↘</span></a>
+        <h1>Turn long videos into <em>captioned shorts.</em></h1>
+        <p>Paste a direct link to a podcast or interview and pick up to 10 clips. ClipFarm finds the best moments and delivers vertical MP4s with captions built in.</p>
+        <a class="primary hero-cta" href="#clipper">Make clips</a>
       </div>
       <figure>
         <img src="/assets/clipfarm-hero.webp" alt="A fictional podcast host shown in one landscape frame and two vertical crops" width="1536" height="1024" fetchpriority="high">
@@ -43,7 +43,7 @@
         <form id="clip-form">
           <div class="form-row">
             <label class="source-label">Video link
-              <input id="source" type="url" placeholder="https://…/video.mp4" required autocomplete="url" maxlength="3000">
+              <input id="source" type="url" placeholder="https://…/video.mp4" required autocomplete="url" maxlength="3000" aria-describedby="source-help">
             </label>
             <fieldset>
               <legend>Clips</legend>
@@ -55,7 +55,7 @@
             </fieldset>
           </div>
           <div class="submit-row">
-            <p>Direct HTTPS MP4, MOV, or WebM · 20 sec–60 min</p>
+            <p id="source-help">Use a direct HTTPS link to an MP4, MOV, or WebM file (20 sec–60 min).</p>
             <button id="generate" class="primary" type="submit">Generate 5 clips <span>500 credits</span></button>
           </div>
           <p id="work-status" class="status" role="status" hidden></p>
@@ -68,7 +68,7 @@
     <section id="pricing" class="shell pricing">
       <div>
         <h2>One clip. 100 credits.</h2>
-        <p>Choose the count up front. Credits are used only for finished clips.</p>
+        <p>That’s $0.40 per clip with a credit pack. You only pay for finished clips.</p>
       </div>
       <div class="pack">
         <div><strong>$12</strong><p>3,000 credits · 30 clips</p></div>
