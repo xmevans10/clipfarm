@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Turn podcasts, interviews, and other long videos into captioned vertical clips. Choose up to 10 clips and download them as 9:16 MP4s.">
+  <meta name="description" content="Turn one long video into the short clips worth posting. Choose how many and get captioned vertical MP4s.">
   <meta property="og:title" content="ClipFarm — Turn long videos into captioned shorts">
-  <meta property="og:description" content="Paste a direct video link and choose up to 10 clips. Download the best moments as captioned vertical MP4s.">
+  <meta property="og:description" content="Turn long videos into captioned shorts. Get two months free on any annual ClipFarm plan.">
   <meta property="og:image" content="/assets/clipfarm-hero.webp">
   <meta name="theme-color" content="#111411">
   <title>ClipFarm — Turn long videos into captioned shorts</title>
@@ -15,7 +15,10 @@
 </head>
 <body>
   <header class="shell">
-    <a class="brand" href="/" aria-label="ClipFarm home"><img src="/assets/mark.svg" alt="" width="33" height="33">ClipFarm<span>.</span></a>
+    <a class="brand" href="/" aria-label="ClipFarm home">
+      <img src="/assets/mark.svg" alt="" width="34" height="34">
+      ClipFarm
+    </a>
     <nav aria-label="Account">
       <button id="pricing-nav" class="ghost" type="button">Credits</button>
       <button id="account-nav" class="outline" type="button">Sign in</button>
@@ -27,7 +30,10 @@
       <div class="hero-copy">
         <h1>Turn long videos into <em>captioned shorts.</em></h1>
         <p>Paste a direct link to a podcast or interview and pick up to 10 clips. ClipFarm finds the best moments and delivers vertical MP4s with captions built in.</p>
-        <a class="primary hero-cta" href="#clipper">Make clips</a>
+        <div class="hero-actions">
+          <a class="primary hero-cta" href="#clipper">Make clips</a>
+          <a class="outline hero-cta" href="?billing=yearly#pricing">See annual plans</a>
+        </div>
       </div>
       <figure>
         <img src="/assets/clipfarm-hero.webp" alt="A fictional podcast host shown in one landscape frame and two vertical crops" width="1536" height="1024" fetchpriority="high">
@@ -66,18 +72,32 @@
     <section id="results" class="shell results" aria-live="polite" hidden></section>
 
     <section id="pricing" class="shell pricing">
-      <div>
-        <h2>One clip. 100 credits.</h2>
-        <p>Choose the count up front. Credits are used only for finished clips.</p>
+      <div class="pricing-head">
+        <h2>2 months free on any annual plan</h2>
+        <p>Get 12 months for the price of 10. Annual plans are billed once a year.</p>
+        <div class="billing-toggle" role="group" aria-label="Billing period">
+          <button id="billing-monthly" type="button" class="toggle-btn active" aria-pressed="true">Monthly</button>
+          <button id="billing-yearly" type="button" class="toggle-btn" aria-pressed="false">Yearly</button>
+        </div>
       </div>
-      <div class="pack">
-        <div><strong>$12</strong><p>3,000 credits · 30 clips</p></div>
-        <button id="buy" type="button" class="outline">Get credits</button>
+      <div id="tier-cards" class="tier-grid" aria-live="polite"></div>
+      <div class="topup">
+        <p class="topup-label">Pay as you go — top up any time, no subscription</p>
+        <div class="pack">
+          <div><strong>$12</strong><p>3,000 credits · 30 clips</p></div>
+          <button id="buy" type="button" class="outline">Get credits</button>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="shell"><a class="brand" href="/">ClipFarm<span>.</span></a><span>Use footage you’re authorized to clip. Exports are held for seven days.</span></footer>
+  <footer class="shell">
+    <a class="brand" href="/" aria-label="ClipFarm home">
+      <img src="/assets/mark.svg" alt="" width="24" height="24">
+      ClipFarm
+    </a>
+    <span>Use footage you’re authorized to clip. Exports are held for seven days.</span>
+  </footer>
 
   <dialog id="auth-dialog" aria-labelledby="auth-title">
     <form id="auth-form">
