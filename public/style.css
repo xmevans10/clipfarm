@@ -115,7 +115,7 @@ h1 em{font-style:normal;color:var(--accent)}
   font-weight: 500;
 }
 
-.conversion img {
+.conversion video {
   display: block;
   width: 100%;
   height: auto;
@@ -126,7 +126,7 @@ h1 em{font-style:normal;color:var(--accent)}
 
 .source-frame{aspect-ratio:16/9}
 .short-frames{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(5px,1vw,12px)}
-.short-frames img{aspect-ratio:9/16}
+.short-frames video{aspect-ratio:9/16}
 .conversion-arrow {
   display: grid;
   place-items: center;
@@ -142,10 +142,25 @@ h1 em{font-style:normal;color:var(--accent)}
 }
 
 .conversion figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
   margin-top: 12px;
   color: #cadac9;
   font-size: 13px;
 }
+
+#toggle-preview-motion {
+  padding: 4px 9px;
+  border: 1px solid #819986;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+}
+
+#toggle-preview-motion:focus-visible{outline-color:#d7ee9c}
 
 .workflow, .faq {padding-block:clamp(36px,6vw,70px)}
 .workflow ol {
@@ -170,29 +185,6 @@ h1 em{font-style:normal;color:var(--accent)}
 .workflow li::marker{color:var(--accent);font-weight:600}
 .workflow h3{display:inline;font-size:19px}
 .workflow p{margin-top:8px;line-height:1.5}
-.use-cases {
-  padding: 0 0 clamp(36px, 6vw, 70px);
-}
-.use-case-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-  margin-top: 14px;
-}
-.use-case-grid article {
-  padding: 19px;
-  border-top: 2px solid #a6bb8d;
-  border-radius: 0 0 12px 12px;
-  background: var(--panel);
-}
-.use-case-grid h3{font-size:19px}
-.use-case-grid p,.source-tip{margin-top:8px;line-height:1.5}
-.source-tip {
-  margin-top: 14px;
-  padding: 14px 18px;
-  border-radius: 10px;
-  background: #e8efdb;
-}
 .faq{max-width:830px}
 .faq h2{margin-bottom:14px}
 .faq details{border-bottom:1px solid var(--line);padding:15px 0}
@@ -271,7 +263,7 @@ dialog{padding:0;background:var(--panel);border:1px solid var(--line);border-rad
   .counter button{min-width:30px}
   #generate{grid-column:1/-1}
   .pricing{gap:18px}
-  .tier-grid,.workflow ol,.use-case-grid{grid-template-columns:1fr}
+  .tier-grid,.workflow ol{grid-template-columns:1fr}
   .pack{width:100%;justify-content:space-between}
   footer{align-items:flex-start;justify-content:center;flex-direction:column;gap:9px;padding-block:14px}
   .result-grid{grid-template-columns:repeat(2,minmax(0,1fr))}

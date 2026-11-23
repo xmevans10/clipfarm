@@ -314,3 +314,35 @@ async function start() {
   history.replaceState(null,'','/')
 }
 start().catch(()=>status('work-status','ClipFarm is temporarily unavailable.',true))
+
+const previewVideos = [...document.querySelectorAll('.conversion video')]
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)')
+const previewMotion = $('toggle-preview-motion')
+if (previewMotion && previewVideos.length) {
+  let motionEnabled = !reducedMotion.matches
+  const visiblePreviews = new Set()
+  const syncPreview = video => {
+    if (!motionEnabled || !visiblePreviews.has(video)) {
+      video.pause()
+      return
+    }
+    void video.play().catch(() => {})
+  }
+  const setMotion = enabled => {
+    motionEnabled = enabled
+    previewMotion.textContent = enabled ? 'Pause motion' : 'Play motion'
+    previewVideos.forEach(syncPreview)
+  }
+  const observer = new IntersectionObserver(entries => {
+    for (const {target, isIntersecting} of entries) {
+      if (isIntersecting) visiblePreviews.add(target)
+      else visiblePreviews.delete(target)
+      syncPreview(target)
+    }
+  }, {threshold: 0.15})
+  for (const video of previewVideos) observer.observe(video)
+  previewMotion.hidden = false
+  setMotion(motionEnabled)
+  previewMotion.addEventListener('click', () => setMotion(!motionEnabled))
+  reducedMotion.addEventListener('change', event => setMotion(!event.matches))
+}

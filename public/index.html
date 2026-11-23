@@ -70,19 +70,30 @@
       <div class="conversion-layout">
         <div class="conversion-source">
           <div class="frame-label">Original video <span>16:9</span></div>
-          <img class="source-frame" src="/assets/diary-source.webp" width="960" height="540" alt="Wide studio shot of the host and two guests at the interview table" fetchpriority="high">
+          <video class="source-frame" poster="/assets/diary-source.webp" width="960" height="540" aria-label="Wide studio shot of the host and two guests at the interview table" muted loop playsinline preload="none">
+            <source src="/assets/diary-source.mp4" type="video/mp4">
+          </video>
         </div>
         <span class="conversion-arrow" aria-hidden="true">→</span>
         <div class="conversion-output">
           <div class="frame-label">3 captioned shorts <span>9:16</span></div>
           <div class="short-frames">
-            <img src="/assets/diary-fbi.webp" width="432" height="768" alt="Vertical clip titled Pizza for the FBI">
-            <img src="/assets/diary-fashion.webp" width="432" height="768" alt="Vertical clip titled She wanted to be a fashion designer">
-            <img src="/assets/diary-interview.webp" width="432" height="768" alt="Vertical clip titled What follows love bombing?">
+            <video poster="/assets/diary-fbi.webp" width="432" height="768" aria-label="Vertical clip titled Pizza for the FBI" muted loop playsinline preload="none">
+              <source src="/assets/diary-fbi.mp4" type="video/mp4">
+            </video>
+            <video poster="/assets/diary-fashion.webp" width="432" height="768" aria-label="Vertical clip titled She wanted to be a fashion designer" muted loop playsinline preload="none">
+              <source src="/assets/diary-fashion.mp4" type="video/mp4">
+            </video>
+            <video poster="/assets/diary-interview.webp" width="432" height="768" aria-label="Vertical clip titled What follows love bombing?" muted loop playsinline preload="none">
+              <source src="/assets/diary-interview.mp4" type="video/mp4">
+            </video>
           </div>
         </div>
       </div>
-      <figcaption>Source footage from <cite>The Diary of a CEO</cite>.</figcaption>
+      <figcaption>
+        <span>Source footage from <cite>The Diary of a CEO</cite>.</span>
+        <button id="toggle-preview-motion" type="button" hidden>Pause motion</button>
+      </figcaption>
     </figure>
 
     <section id="how-it-works" class="shell workflow" aria-labelledby="workflow-title">
@@ -101,25 +112,6 @@
           <p>Get captioned 9:16 MP4s to post on Shorts, Reels, or TikTok.</p>
         </li>
       </ol>
-    </section>
-
-    <section class="shell use-cases" aria-labelledby="use-cases-title">
-      <h2 id="use-cases-title">What to clip</h2>
-      <div class="use-case-grid">
-        <article>
-          <h3>Podcasts and interviews</h3>
-          <p>Find a guest’s strongest answer, a surprising story, or an exchange that makes sense on its own.</p>
-        </article>
-        <article>
-          <h3>Talks and tutorials</h3>
-          <p>Pull out a specific tip, a short explanation, or the moment a tricky idea clicks.</p>
-        </article>
-        <article>
-          <h3>Webinars and live Q&amp;As</h3>
-          <p>Share a useful answer or audience question as a captioned vertical clip.</p>
-        </article>
-      </div>
-      <p class="source-tip"><strong>For better clips, start with clear speech.</strong> Give ClipFarm the original recording with audio and enough context for each moment to stand on its own.</p>
     </section>
 
     <section id="pricing" class="shell pricing">
