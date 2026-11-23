@@ -6,38 +6,32 @@
   <meta name="description" content="Turn one long video into the short clips worth posting. Choose how many and get captioned vertical MP4s.">
   <meta property="og:title" content="ClipFarm — Turn long videos into captioned shorts">
   <meta property="og:description" content="Turn long videos into captioned shorts. Get two months free on any annual ClipFarm plan.">
-  <meta property="og:image" content="/assets/clipfarm-hero.webp">
-  <meta name="theme-color" content="#111411">
+  <meta property="og:image" content="/assets/diary-source.webp">
+  <meta name="theme-color" content="#f8f9f3">
   <title>ClipFarm — Turn long videos into captioned shorts</title>
-  <link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/clipfarm-logo.png" type="image/png">
   <link rel="stylesheet" href="/style.css">
   <script type="module" src="/app.js"></script>
 </head>
 <body>
   <header class="shell">
     <a class="brand" href="/" aria-label="ClipFarm home">
-      <img src="/assets/mark.svg" alt="" width="34" height="34">
+      <img src="/assets/clipfarm-logo.png" alt="" width="36" height="36">
       ClipFarm
     </a>
-    <nav aria-label="Account">
-      <button id="pricing-nav" class="ghost" type="button">Credits</button>
+    <nav aria-label="Main navigation">
+      <a class="ghost nav-link" href="#how-it-works">How it works</a>
+      <button id="pricing-nav" class="ghost" type="button">Pricing</button>
       <button id="account-nav" class="outline" type="button">Sign in</button>
     </nav>
   </header>
 
   <main>
-    <div class="shell hero">
+    <div class="shell hero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <h1>Turn long videos into <em>captioned shorts.</em></h1>
-        <p>Paste a direct link to a podcast or interview and pick up to 10 clips. ClipFarm finds the best moments and delivers vertical MP4s with captions built in.</p>
-        <div class="hero-actions">
-          <a class="primary hero-cta" href="#clipper">Make clips</a>
-          <a class="outline hero-cta" href="?billing=yearly#pricing">See annual plans</a>
-        </div>
+        <h1 id="hero-title">Turn long videos into <em>captioned shorts</em></h1>
+        <p>Paste a podcast or interview video link. ClipFarm finds the moments worth sharing and gives you up to 10 vertical clips with captions built in.</p>
       </div>
-      <figure>
-        <img src="/assets/clipfarm-hero.webp" alt="A fictional podcast host shown in one landscape frame and two vertical crops" width="1536" height="1024" fetchpriority="high">
-      </figure>
     </div>
 
     <section id="clipper" class="shell">
@@ -49,7 +43,7 @@
         <form id="clip-form">
           <div class="form-row">
             <label class="source-label">Video link
-              <input id="source" type="url" placeholder="https://…/video.mp4" required autocomplete="url" maxlength="3000" aria-describedby="source-help">
+              <input id="source" type="url" placeholder="https://example.com/video.mp4" required autocomplete="url" maxlength="3000" aria-describedby="source-help">
             </label>
             <fieldset>
               <legend>Clips</legend>
@@ -71,6 +65,43 @@
 
     <section id="results" class="shell results" aria-live="polite" hidden></section>
 
+    <figure class="shell conversion">
+      <div class="conversion-layout">
+        <div class="conversion-source">
+          <span class="frame-label">Original video</span>
+          <img class="source-frame" src="/assets/diary-source.webp" width="960" height="540" alt="Wide studio shot of the host and two guests at the interview table" fetchpriority="high">
+        </div>
+        <span class="conversion-arrow" aria-hidden="true">→</span>
+        <div class="conversion-output">
+          <span class="frame-label">3 captioned shorts</span>
+          <div class="short-frames">
+            <img src="/assets/diary-fbi.webp" width="432" height="768" alt="Vertical clip titled Pizza for the FBI">
+            <img src="/assets/diary-fashion.webp" width="432" height="768" alt="Vertical clip titled She wanted to be a fashion designer">
+            <img src="/assets/diary-interview.webp" width="432" height="768" alt="Vertical clip titled What follows love bombing?">
+          </div>
+        </div>
+      </div>
+      <figcaption>Source footage from <cite>The Diary of a CEO</cite>.</figcaption>
+    </figure>
+
+    <section id="how-it-works" class="shell workflow" aria-labelledby="workflow-title">
+      <h2 id="workflow-title">How it works</h2>
+      <ol>
+        <li>
+          <h3>Paste a video link</h3>
+          <p>Use a direct MP4, MOV, or WebM link to footage with audio.</p>
+        </li>
+        <li>
+          <h3>Choose how many clips</h3>
+          <p>Pick up to 10. ClipFarm finds moments that can stand on their own and adds captions.</p>
+        </li>
+        <li>
+          <h3>Download your shorts</h3>
+          <p>Get captioned 9:16 MP4s to post on Shorts, Reels, or TikTok.</p>
+        </li>
+      </ol>
+    </section>
+
     <section id="pricing" class="shell pricing">
       <div class="pricing-head">
         <h2>2 months free on any annual plan</h2>
@@ -89,11 +120,27 @@
         </div>
       </div>
     </section>
+
+    <section class="shell faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">Frequently asked questions</h2>
+      <details>
+        <summary>Can I paste a YouTube watch link?</summary>
+        <p>ClipFarm accepts direct HTTPS links to MP4, MOV, or WebM files, from 20 seconds to 60 minutes. Use a video file you have permission to clip.</p>
+      </details>
+      <details>
+        <summary>When do I use credits?</summary>
+        <p>ClipFarm uses 100 credits per finished clip and returns credits for any clips it can’t deliver.</p>
+      </details>
+      <details>
+        <summary>How long are downloads available?</summary>
+        <p>You can download your clips for seven days after they’re exported.</p>
+      </details>
+    </section>
   </main>
 
   <footer class="shell">
     <a class="brand" href="/" aria-label="ClipFarm home">
-      <img src="/assets/mark.svg" alt="" width="24" height="24">
+      <img src="/assets/clipfarm-logo.png" alt="" width="26" height="26">
       ClipFarm
     </a>
     <span>Use footage you’re authorized to clip. Exports are held for seven days.</span>
