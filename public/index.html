@@ -7,7 +7,7 @@
   <meta property="og:title" content="ClipFarm — Turn long videos into captioned shorts">
   <meta property="og:description" content="Turn long videos into captioned shorts. Get two months free on any annual ClipFarm plan.">
   <meta property="og:image" content="/assets/diary-source.webp">
-  <meta name="theme-color" content="#f8f9f3">
+  <meta name="theme-color" content="#f8f8ef">
   <title>ClipFarm — Turn long videos into captioned shorts</title>
   <link rel="icon" href="/assets/clipfarm-logo.png" type="image/png">
   <link rel="stylesheet" href="/style.css">
@@ -28,39 +28,32 @@
 
   <main>
     <div class="shell hero" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <h1 id="hero-title">Turn long videos into <em>captioned shorts</em></h1>
-        <p>Paste a podcast or interview video link. ClipFarm finds the moments worth sharing and gives you up to 10 vertical clips with captions built in.</p>
-      </div>
+      <h1 id="hero-title">Turn long videos into <em>captioned shorts</em></h1>
+      <p>Get up to 10 vertical clips with captions from a single podcast or interview.</p>
     </div>
 
-    <section id="clipper" class="shell">
-      <div class="workbench">
-        <div class="workbench-header">
-          <h2>Make clips</h2>
-          <span id="balance">100 credits per clip</span>
+    <section id="clipper" class="shell" aria-label="Make clips">
+      <form id="clip-form" class="workbench">
+        <div class="form-row">
+          <label class="source-label">Video link
+            <input id="source" type="url" placeholder="https://…/video.mp4" required autocomplete="url" maxlength="3000" aria-describedby="source-help">
+          </label>
+          <fieldset>
+            <legend>Clips</legend>
+            <div class="counter">
+              <button id="minus" type="button" aria-label="One fewer clip">−</button>
+              <input id="count" type="number" min="1" max="10" value="5" aria-label="Number of clips" required>
+              <button id="plus" type="button" aria-label="One more clip">+</button>
+            </div>
+          </fieldset>
+          <button id="generate" class="primary" type="submit">Generate 5 clips <span>500 credits</span></button>
         </div>
-        <form id="clip-form">
-          <div class="form-row">
-            <label class="source-label">Video link
-              <input id="source" type="url" placeholder="https://example.com/video.mp4" required autocomplete="url" maxlength="3000" aria-describedby="source-help">
-            </label>
-            <fieldset>
-              <legend>Clips</legend>
-              <div class="counter">
-                <button id="minus" type="button" aria-label="One fewer clip">−</button>
-                <input id="count" type="number" min="1" max="10" value="5" aria-label="Number of clips" required>
-                <button id="plus" type="button" aria-label="One more clip">+</button>
-              </div>
-            </fieldset>
-          </div>
-          <div class="submit-row">
-            <p id="source-help">Use a direct HTTPS link to an MP4, MOV, or WebM file (20 sec–60 min).</p>
-            <button id="generate" class="primary" type="submit">Generate 5 clips <span>500 credits</span></button>
-          </div>
-          <p id="work-status" class="status" role="status" hidden></p>
-        </form>
-      </div>
+        <div class="workbench-notes">
+          <p id="source-help">Direct HTTPS video link · MP4, MOV, or WebM · 20 sec–60 min</p>
+          <p id="balance">100 credits per clip</p>
+        </div>
+        <p id="work-status" class="status" role="status" hidden></p>
+      </form>
     </section>
 
     <section id="results" class="shell results" aria-live="polite" hidden></section>
@@ -68,12 +61,12 @@
     <figure class="shell conversion">
       <div class="conversion-layout">
         <div class="conversion-source">
-          <span class="frame-label">Original video</span>
+          <div class="frame-label">Original video <span>16:9</span></div>
           <img class="source-frame" src="/assets/diary-source.webp" width="960" height="540" alt="Wide studio shot of the host and two guests at the interview table" fetchpriority="high">
         </div>
         <span class="conversion-arrow" aria-hidden="true">→</span>
         <div class="conversion-output">
-          <span class="frame-label">3 captioned shorts</span>
+          <div class="frame-label">3 captioned shorts <span>9:16</span></div>
           <div class="short-frames">
             <img src="/assets/diary-fbi.webp" width="432" height="768" alt="Vertical clip titled Pizza for the FBI">
             <img src="/assets/diary-fashion.webp" width="432" height="768" alt="Vertical clip titled She wanted to be a fashion designer">
