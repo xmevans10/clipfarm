@@ -9,7 +9,7 @@ const money = new Intl.NumberFormat('en-US')
 const choice = () => Math.min(10, Math.max(1, Number($('count').value) || 1))
 let profile = null, payments = false, paymentsKnown = false, mode = 'login', next = null
 let tiers = [], subscription = null
-let billingInterval = new URLSearchParams(location.search).get('billing') === 'yearly' ? 'yearly' : 'monthly'
+let billingInterval = new URLSearchParams(location.search).get('billing') === 'monthly' ? 'monthly' : 'yearly'
 // Fallback only: used when /api/me returns no `tiers` (e.g. the old deployed
 // worker). Mirrors the exact tier design; the backend payload wins when present.
 const FALLBACK_TIERS = [
@@ -65,7 +65,7 @@ function syncCount() {
   $('minus').disabled = count <= 1
   $('plus').disabled = count >= 10
   $('generate').replaceChildren(
-    document.createTextNode(`Generate ${count} ${count===1?'clip':'clips'} `),
+    document.createTextNode(`Make ${count} ${count===1?'clip':'clips'} `),
     node('span',`${money.format(count * 100)} credits`)
   )
 }
@@ -122,15 +122,17 @@ function renderTiers() {
     const plan = tier[billingInterval] || tier.monthly
     const isCurrentTier = !!current && tierMatches(tier, current.tier)
     const isCurrentInterval = isCurrentTier && normalizeInterval(current.interval) === billingInterval
-    const card = node('article', undefined, 'tier' + (isCurrentTier ? ' tier--current' : ''))
+    const popular = tier.id === 'creator' && !isCurrentTier
+    const card = node('article', undefined, 'tier' + (isCurrentTier ? ' tier--current' : '') + (popular ? ' tier--popular' : ''))
     if (isCurrentTier) card.append(node('span', 'Current plan', 'tier-badge'))
+    else if (popular) card.append(node('span', 'Most popular', 'tier-badge tier-badge--popular'))
     card.append(node('h3', tier.name))
     const price = node('p', undefined, 'tier-price')
     price.append(document.createTextNode(fmtPrice(plan.cents)), node('span', billingInterval === 'monthly' ? '/mo' : '/yr'))
     card.append(price)
     if (billingInterval === 'yearly') {
       const saving = fmtPrice(tier.monthly.cents * 12 - plan.cents)
-      card.append(node('p', `Save ${saving} a year compared with monthly billing`, 'tier-effective'))
+      card.append(node('p', `${fmtPrice(plan.cents / 12)}/mo · save ${saving} a year`, 'tier-effective'))
     } else {
       const saving = fmtPrice(tier.monthly.cents * 12 - tier.yearly.cents)
       card.append(node('p', `Or ${fmtPrice(tier.yearly.cents)}/yr · save ${saving}`, 'tier-effective'))

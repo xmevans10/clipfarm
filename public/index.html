@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Turn podcasts, interviews, and other speech-heavy videos into up to 10 captioned vertical MP4s for YouTube Shorts, Instagram Reels, and TikTok.">
+  <meta name="description" content="Turn podcasts, interviews, streams, and other talking-head videos into up to 10 captioned vertical MP4s for YouTube Shorts, Instagram Reels, and TikTok.">
   <link rel="canonical" href="https://clipfarm.xmevans10.workers.dev/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="ClipFarm">
   <meta property="og:url" content="https://clipfarm.xmevans10.workers.dev/">
   <meta property="og:title" content="ClipFarm — Turn long videos into captioned shorts">
-  <meta property="og:description" content="Turn long videos into captioned shorts. Get two months free on any annual ClipFarm plan.">
+  <meta property="og:description" content="Paste one video link. Get up to 10 captioned 9:16 clips for Shorts, Reels, and TikTok.">
   <meta property="og:image" content="https://clipfarm.xmevans10.workers.dev/assets/diary-source.webp">
   <meta property="og:image:width" content="960">
   <meta property="og:image:height" content="540">
@@ -28,90 +28,159 @@
       ClipFarm
     </a>
     <nav aria-label="Main navigation">
+      <a class="ghost nav-link" href="#examples">Examples</a>
       <a class="ghost nav-link" href="#how-it-works">How it works</a>
       <button id="pricing-nav" class="ghost" type="button">Pricing</button>
       <button id="account-nav" class="outline" type="button">Sign in</button>
+      <a class="primary nav-cta" href="#clipper">Make clips</a>
     </nav>
   </header>
 
   <main>
     <div class="shell hero" aria-labelledby="hero-title">
-      <h1 id="hero-title">Turn long videos into <em>captioned shorts</em></h1>
-      <p>Get up to 10 vertical clips with captions from a single podcast or interview.</p>
-    </div>
+      <div class="hero-left">
+      <div class="hero-copy">
+        <h1 id="hero-title">Turn long videos into <em>captioned shorts</em></h1>
+        <p class="hero-lede">Paste one video link. Get up to 10 captioned 9:16 clips for Shorts, Reels, and TikTok. No editor, no timeline.</p>
+        <ul class="hero-tags" aria-label="Works with">
+          <li>Podcasts</li>
+          <li>Interviews</li>
+          <li>Streams</li>
+          <li>Webinars</li>
+          <li>Gaming commentary</li>
+        </ul>
+      </div>
 
-    <section id="clipper" class="shell" aria-label="Make clips">
-      <form id="clip-form" class="workbench">
-        <div class="form-row">
-          <label class="source-label">Video link
-            <input id="source" type="url" placeholder="https://…/video.mp4" required autocomplete="url" maxlength="3000" aria-describedby="source-help">
-          </label>
-          <fieldset>
-            <legend>Clips</legend>
-            <div class="counter">
-              <button id="minus" type="button" aria-label="One fewer clip">−</button>
-              <input id="count" type="number" min="1" max="10" value="5" aria-label="Number of clips" required>
-              <button id="plus" type="button" aria-label="One more clip">+</button>
+      <section id="clipper" class="hero-form" aria-label="Make clips">
+        <form id="clip-form" class="workbench">
+          <div class="form-row">
+            <label class="source-label">Video link
+              <input id="source" type="url" placeholder="https://…/video.mp4" required autocomplete="url" maxlength="3000" aria-describedby="source-help">
+            </label>
+            <fieldset>
+              <legend>Clips</legend>
+              <div class="counter">
+                <button id="minus" type="button" aria-label="One fewer clip">−</button>
+                <input id="count" type="number" min="1" max="10" value="5" aria-label="Number of clips" required>
+                <button id="plus" type="button" aria-label="One more clip">+</button>
+              </div>
+            </fieldset>
+            <button id="generate" class="primary" type="submit">Make 5 clips <span>500 credits</span></button>
+          </div>
+          <div class="workbench-notes">
+            <p id="source-help">Direct HTTPS video link · MP4, MOV, or WebM · 20 sec–60 min</p>
+            <p id="balance">100 credits per clip</p>
+          </div>
+          <p id="work-status" class="status" role="status" hidden></p>
+        </form>
+        <p class="hero-note">Captions included · 100 credits per finished clip · Downloads ready for 7 days</p>
+      </section>
+      </div>
+
+      <figure id="examples" class="conversion conversion--hero">
+        <div class="conversion-layout">
+          <div class="conversion-source">
+            <div class="frame-label">Original video <span>16:9</span></div>
+            <video class="source-frame" poster="/assets/diary-source.webp" width="960" height="540" aria-label="Wide studio shot of the host and two guests at the interview table" muted loop playsinline preload="none">
+              <source src="/assets/diary-source.mp4" type="video/mp4">
+            </video>
+          </div>
+          <span class="conversion-arrow" aria-hidden="true">→</span>
+          <div class="conversion-output">
+            <div class="frame-label">3 captioned shorts <span>9:16</span></div>
+            <div class="short-frames">
+              <video poster="/assets/diary-fbi.webp" width="432" height="768" aria-label="Vertical clip titled Pizza for the FBI" muted loop playsinline preload="none">
+                <source src="/assets/diary-fbi.mp4" type="video/mp4">
+              </video>
+              <video poster="/assets/diary-fashion.webp" width="432" height="768" aria-label="Vertical clip titled She wanted to be a fashion designer" muted loop playsinline preload="none">
+                <source src="/assets/diary-fashion.mp4" type="video/mp4">
+              </video>
+              <video poster="/assets/diary-interview.webp" width="432" height="768" aria-label="Vertical clip titled What follows love bombing?" muted loop playsinline preload="none">
+                <source src="/assets/diary-interview.mp4" type="video/mp4">
+              </video>
             </div>
-          </fieldset>
-          <button id="generate" class="primary" type="submit">Generate 5 clips <span>500 credits</span></button>
+          </div>
         </div>
-        <div class="workbench-notes">
-          <p id="source-help">Direct HTTPS video link · MP4, MOV, or WebM · 20 sec–60 min</p>
-          <p id="balance">100 credits per clip</p>
-        </div>
-        <p id="work-status" class="status" role="status" hidden></p>
-      </form>
-    </section>
+        <figcaption>
+          <span>Source footage from <cite>The Diary of a CEO</cite>.</span>
+          <button id="toggle-preview-motion" type="button" hidden>Pause motion</button>
+        </figcaption>
+      </figure>
+    </div>
 
     <section id="results" class="shell results" aria-live="polite" hidden></section>
 
-    <figure class="shell conversion">
-      <div class="conversion-layout">
-        <div class="conversion-source">
-          <div class="frame-label">Original video <span>16:9</span></div>
-          <video class="source-frame" poster="/assets/diary-source.webp" width="960" height="540" aria-label="Wide studio shot of the host and two guests at the interview table" muted loop playsinline preload="none">
-            <source src="/assets/diary-source.mp4" type="video/mp4">
-          </video>
-        </div>
-        <span class="conversion-arrow" aria-hidden="true">→</span>
-        <div class="conversion-output">
-          <div class="frame-label">3 captioned shorts <span>9:16</span></div>
-          <div class="short-frames">
-            <video poster="/assets/diary-fbi.webp" width="432" height="768" aria-label="Vertical clip titled Pizza for the FBI" muted loop playsinline preload="none">
-              <source src="/assets/diary-fbi.mp4" type="video/mp4">
-            </video>
-            <video poster="/assets/diary-fashion.webp" width="432" height="768" aria-label="Vertical clip titled She wanted to be a fashion designer" muted loop playsinline preload="none">
-              <source src="/assets/diary-fashion.mp4" type="video/mp4">
-            </video>
-            <video poster="/assets/diary-interview.webp" width="432" height="768" aria-label="Vertical clip titled What follows love bombing?" muted loop playsinline preload="none">
-              <source src="/assets/diary-interview.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
+    <section class="shell proof" aria-label="Why ClipFarm">
+      <ul>
+        <li>Real exports, not mockups</li>
+        <li>Captions baked in</li>
+        <li>9:16 ready for Shorts, Reels, and TikTok</li>
+      </ul>
+    </section>
+
+    <section id="what-you-get" class="shell section" aria-labelledby="spec-title">
+      <div class="section-head">
+        <h2 id="spec-title">What you get</h2>
+        <p>Every export is a finished vertical video, not a project file.</p>
       </div>
-      <figcaption>
-        <span>Source footage from <cite>The Diary of a CEO</cite>.</span>
-        <button id="toggle-preview-motion" type="button" hidden>Pause motion</button>
-      </figcaption>
-    </figure>
+      <ul class="spec-grid">
+        <li><strong>9:16 MP4</strong><span>720 × 1280, sized for Shorts, Reels, and TikTok.</span></li>
+        <li><strong>Captions burned in</strong><span>Generated from the source audio, styled for mobile.</span></li>
+        <li><strong>Full frame preserved</strong><span>Wide shots get a blurred background instead of a crop.</span></li>
+        <li><strong>Up to 10 clips</strong><span>Choose one to ten moments from a single source.</span></li>
+        <li><strong>100 credits per clip</strong><span>Only finished clips use credits. Failed clips are returned.</span></li>
+        <li><strong>7-day downloads</strong><span>Download your MP4s for a week after they export.</span></li>
+      </ul>
+    </section>
 
     <section id="how-it-works" class="shell workflow" aria-labelledby="workflow-title">
-      <h2 id="workflow-title">How it works</h2>
+      <div class="section-head">
+        <h2 id="workflow-title">How it works</h2>
+        <p>Three steps. No timeline, no editing software.</p>
+      </div>
       <ol>
         <li>
           <h3>Paste a video link</h3>
-          <p>Use a direct MP4, MOV, or WebM link to footage with audio.</p>
+          <p>Direct MP4, MOV, or WebM. No upload, no editor.</p>
         </li>
         <li>
-          <h3>Choose how many clips</h3>
-          <p>Pick up to 10. ClipFarm finds moments that can stand on their own and adds captions.</p>
+          <h3>Pick how many clips</h3>
+          <p>One to ten. ClipFarm finds moments that stand on their own.</p>
         </li>
         <li>
-          <h3>Download your shorts</h3>
-          <p>Get captioned 9:16 MP4s to post on Shorts, Reels, or TikTok.</p>
+          <h3>Download and post</h3>
+          <p>Captioned 9:16 MP4s for Shorts, Reels, and TikTok.</p>
         </li>
       </ol>
+      <p class="section-cta"><a class="primary" href="#clipper">Make my clips</a></p>
+    </section>
+
+    <section id="will-it-work" class="shell section" aria-labelledby="source-title">
+      <div class="section-head">
+        <h2 id="source-title">Will my video work?</h2>
+        <p>ClipFarm is built for footage where people are talking. Here is the honest list.</p>
+      </div>
+      <div class="source-check">
+        <article class="source-card">
+          <h3>Works well</h3>
+          <ul>
+            <li>Direct HTTPS links to MP4, MOV, or WebM</li>
+            <li>20 seconds to 60 minutes, up to 800 MB</li>
+            <li>Podcasts, interviews, webinars, and streams with clear speech</li>
+            <li>One speaker or a clean conversation</li>
+          </ul>
+        </article>
+        <article class="source-card source-card--no">
+          <h3>Won’t work</h3>
+          <ul>
+            <li>YouTube watch pages</li>
+            <li>Private, expiring, or DRM-protected links</li>
+            <li>Silent gameplay with no commentary</li>
+            <li>Music-only clips with nothing to transcribe</li>
+          </ul>
+        </article>
+      </div>
+      <p class="source-workaround"><strong>Have a YouTube link?</strong> If it’s your own upload, download the file from YouTube Studio and paste a direct link to it. ClipFarm can’t import a watch page.</p>
     </section>
 
     <section id="pricing" class="shell pricing">
@@ -119,8 +188,8 @@
         <h2>2 months free on any annual plan</h2>
         <p>Get 12 months for the price of 10. Annual plans are billed once a year.</p>
         <div class="billing-toggle" role="group" aria-label="Billing period">
-          <button id="billing-monthly" type="button" class="toggle-btn active" aria-pressed="true">Monthly</button>
-          <button id="billing-yearly" type="button" class="toggle-btn" aria-pressed="false">Yearly</button>
+          <button id="billing-monthly" type="button" class="toggle-btn" aria-pressed="false">Monthly</button>
+          <button id="billing-yearly" type="button" class="toggle-btn active" aria-pressed="true">Yearly</button>
         </div>
       </div>
       <div id="tier-cards" class="tier-grid" aria-live="polite"></div>
@@ -136,25 +205,49 @@
     <section class="shell faq" aria-labelledby="faq-title">
       <h2 id="faq-title">Frequently asked questions</h2>
       <details>
-        <summary>What do I get to download?</summary>
-        <p>Each clip is a vertical 9:16 MP4 with captions already in the video. Download it and post it wherever you share short-form video.</p>
+        <summary>What kind of videos work best?</summary>
+        <p>Footage where people are talking: podcasts, interviews, webinars, and streams with commentary. Give ClipFarm clean speech and enough context for each moment to stand on its own.</p>
       </details>
       <details>
-        <summary>Will I always get the number of clips I request?</summary>
-        <p>ClipFarm may return fewer clips if the source doesn’t have enough usable moments. You only use credits for the clips it finishes.</p>
+        <summary>How long is each clip?</summary>
+        <p>Clips are cut around complete thoughts, usually between 20 and 60 seconds. ClipFarm chooses boundaries from the transcript instead of cutting mid-sentence.</p>
       </details>
       <details>
-        <summary>Can I paste a YouTube watch link?</summary>
-        <p>ClipFarm accepts direct HTTPS links to MP4, MOV, or WebM files, from 20 seconds to 60 minutes. Use a video file you have permission to clip.</p>
+        <summary>How are captions generated? Can I edit them?</summary>
+        <p>Captions are generated from the source audio and burned into the video. They can’t be edited after export.</p>
       </details>
       <details>
-        <summary>When do I use credits?</summary>
-        <p>ClipFarm uses 100 credits per finished clip and returns credits for any clips it can’t deliver.</p>
+        <summary>Does ClipFarm crop my video or add a watermark?</summary>
+        <p>The full frame stays visible. Wide video gets a blurred background above and below to fill the 9:16 frame. No watermark is added.</p>
+      </details>
+      <details>
+        <summary>What happens if it finds fewer clips than I asked for?</summary>
+        <p>ClipFarm returns fewer clips when it can’t find enough usable moments. You only use credits for the clips it finishes.</p>
+      </details>
+      <details>
+        <summary>When do credits get used?</summary>
+        <p>Each finished clip uses 100 credits. Credits for clips that can’t be delivered are returned to your balance.</p>
       </details>
       <details>
         <summary>How long are downloads available?</summary>
         <p>You can download your clips for seven days after they’re exported.</p>
       </details>
+      <details>
+        <summary>Can I use footage I did not create?</summary>
+        <p>Only with permission from the rights holder. ClipFarm is a processing tool, not a license to reuse someone else’s video.</p>
+      </details>
+      <details>
+        <summary>What happens after I pay?</summary>
+        <p>Sign in, paste a direct video link, choose how many clips you want, and download the MP4s when the job finishes.</p>
+      </details>
+    </section>
+
+    <section class="shell closing" aria-labelledby="closing-title">
+      <div>
+        <h2 id="closing-title">Turn one video into a week of shorts.</h2>
+        <p>Captions included. No editor required.</p>
+      </div>
+      <a class="primary" href="#clipper">Make my clips</a>
     </section>
   </main>
 
