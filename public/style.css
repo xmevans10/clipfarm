@@ -14,7 +14,11 @@
 *{box-sizing:border-box}[hidden]{display:none!important}
 body {
   margin: 0;
-  background: radial-gradient(ellipse 72% 550px at 84% 0, #e5eed8 0%, transparent 100%), var(--bg);
+  background:
+    radial-gradient(ellipse at 12% 11%, #f8f8ef 9%, transparent 57%) top / 100% 610px no-repeat,
+    radial-gradient(circle, #35523a26 0.8px, transparent 1.3px) right top / 12px 12px repeat,
+    radial-gradient(ellipse 80% 620px at 90% 0, #dbe7c5, transparent 100%),
+    var(--bg);
   color: var(--ink);
 }
 button,input{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}button:disabled{cursor:not-allowed;opacity:.58}
@@ -76,7 +80,11 @@ h1 em{font-style:normal;color:var(--accent)}
   padding: clamp(15px, 2.2vw, 26px);
   border: 1px solid #263c2b;
   border-radius: 24px;
-  background: radial-gradient(ellipse at 50% 115%, #375742, transparent 80%), #1a2b20;
+  background:
+    radial-gradient(ellipse at center, #1a2b20 12%, transparent 79%),
+    repeating-linear-gradient(135deg, #b3d29e16 0 1px, transparent 1px 9px),
+    radial-gradient(ellipse at 50% 110%, #4d7154, transparent 85%),
+    #1a2b20;
   color: #f5f8f1;
   box-shadow: 0 16px 32px #1d39241f;
 }
@@ -153,7 +161,10 @@ h1 em{font-style:normal;color:var(--accent)}
   padding: 20px;
   border: 1px solid var(--line);
   border-radius: 14px;
-  background: linear-gradient(165deg, var(--panel), #eef3e7);
+  background:
+    linear-gradient(125deg, var(--panel) 40%, transparent),
+    radial-gradient(circle, #5f7b443b 0.7px, transparent 1.2px) right top / 8px 8px,
+    #edf3e5;
 }
 
 .workflow li::marker{color:var(--accent);font-weight:600}
@@ -255,5 +266,8 @@ dialog{padding:0;background:var(--panel);border:1px solid var(--line);border-rad
   padding: clamp(18px, 3vw, 30px);
   border: 1px solid var(--line);
   border-radius: 14px;
-  background: linear-gradient(120deg, #e5efcd, #f7f9ee 80%);
+  background:
+    linear-gradient(90deg, #e5efcd 22%, transparent 90%),
+    repeating-linear-gradient(135deg, #4b693520 0 1px, transparent 1px 10px),
+    #f7f9ee;
 }
